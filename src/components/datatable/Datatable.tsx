@@ -29,26 +29,22 @@ export const Datatable: React.FC = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </InputGroup>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Order #</th>
-                  <th>Order Status</th>
-                  <th>Customer</th>
-                  <th>Purchase date</th>
-                  <th>Fulfilled Date</th>
-                  <th>Invoice status</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  orders
-                    .filter((order: orderType) => searchFilter(order))
-                    .map((order: orderType) => <TableRow rowData={order} /> )
-                }
-              </tbody>
-            </Table>
+          </div>
+          <div className='data-table'>
+            <Row className='table-header'>
+              <Col>Order #</Col>
+              <Col>Order Status</Col>
+              <Col>Customer</Col>
+              <Col>Purchase date</Col>
+              <Col>Fulfilled Date</Col>
+              <Col>Invoice status</Col>
+              <Col>Amount</Col>
+            </Row>
+            {
+              orders
+                .filter((order: orderType) => searchFilter(order))
+                .map((order: orderType, index: number) => <TableRow rowData={order} key={index} /> )
+            }
           </div>
         </Col>
       </Row>

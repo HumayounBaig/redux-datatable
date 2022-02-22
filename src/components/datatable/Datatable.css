@@ -1,0 +1,28 @@
+.datatable-container{
+  padding: 40px;
+  background-color: #F8F8F9;
+}
+
+#search-input {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fff;
+  border: none;
+  padding: 20px;
+  font-weight: 600;
+}
+.data-table {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.data-table .table-header {
+  background-color: #EDEDF2;
+  color: #555;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px !important;
+  font-weight: bold;
+}

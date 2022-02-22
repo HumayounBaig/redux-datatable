@@ -1,0 +1,29 @@
+.table-row {
+  background-color: white;
+  padding: 30px 30px 10px 30px;
+  border: 1px solid #eaeaea;
+  margin-top: 6px;
+  border-radius: 10px;
+  color: #555;
+  font-weight: 500;
+}
+
+.table-row:nth-child(1) {
+  text-transform: capitalize;
+}
+
+.table-row .customer-details > p:first-child {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+
+.table-row .customer-details > p:nth-child(2) {
+  color: #555;
+  font-weight: 500;
+}
+
+.table-row .order-status {
+  text-transform: capitalize;
+}
