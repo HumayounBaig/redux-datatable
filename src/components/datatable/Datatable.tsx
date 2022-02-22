@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Input, InputGroup, Row, Table } from 'reactstrap'
+import React from 'react'
+import { Col, Input, InputGroup, Row } from 'reactstrap'
 import { orders, orderType } from './Datatable.interface';
 import { TableRow } from './tableRow';
 import './Datatable.css';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { getSearchQuery, setSearchQuery,  } from '../../redux/datatableSlice'
 
 export const Datatable: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  useEffect(() => {
-
-  }, []);
+  const searchQuery = useAppSelector(getSearchQuery)
+  const dispatch = useAppDispatch();
 
   const searchFilter = (order: orderType) => {
     return (order.orderID || '').includes(searchQuery) ||
     (order.customerName || '').toLowerCase().includes(searchQuery);
   }
+
+  const tableColumns = [
+    'Order #',
+    'Order Status',
+    'Customer',
+    'Purchase date',
+    'Fulfilled Date',
+    'Invoice status',
+    'Amount'
+  ]
 
   return (
     <div className='datatable-container'>
@@ -26,19 +35,17 @@ export const Datatable: React.FC = () => {
                 id='search-input'
                 placeholder="🔍 Search by Order #, Customer"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => dispatch(setSearchQuery(e.target.value))}
               />
             </InputGroup>
           </div>
           <div className='data-table'>
             <Row className='table-header'>
-              <Col>Order #</Col>
-              <Col>Order Status</Col>
-              <Col>Customer</Col>
-              <Col>Purchase date</Col>
-              <Col>Fulfilled Date</Col>
-              <Col>Invoice status</Col>
-              <Col>Amount</Col>
+              {
+                tableColumns.map((column, index) => (
+                  <Col key={index}>{column}</Col>
+                ))
+              }
             </Row>
             {
               orders
