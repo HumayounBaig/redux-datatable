@@ -40,6 +40,7 @@ export const Datatable: React.FC = () => {
             </InputGroup>
           </div>
           <div className='data-table'>
+            <p>Order History</p>
             <Row className='table-header'>
               {
                 tableColumns.map((column, index) => (
