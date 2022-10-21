@@ -3,10 +3,12 @@ import { RootState } from './store';
 
 export interface InitialState {
   query: string;
+  datatable: string,
 }
 
 const initialState: InitialState = {
   query: '',
+  datatable: '',
 };
 
 export const datatableSlice = createSlice({
