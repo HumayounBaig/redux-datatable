@@ -12,6 +12,7 @@
   border: none;
   padding: 20px;
   font-weight: 600;
+  display : flex
 }
 .data-table {
   padding-left: 10px;
