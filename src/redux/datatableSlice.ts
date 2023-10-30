@@ -9,6 +9,9 @@ export interface InitialState {
 const initialState: InitialState = {
   query: '',
   datatable: '',
+  fName: '',
+  lastName: '',
+
 };
 
 export const datatableSlice = createSlice({
